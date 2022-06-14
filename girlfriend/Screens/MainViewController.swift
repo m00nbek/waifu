@@ -16,12 +16,8 @@ class MainViewController: UIViewController {
 		setupUI()
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		present(alert, animated: true, completion: nil)
-	}
-	
 	// MARK: - Properties
-	let videos = ["ohayo", "longDance", "dance"]
+	let videos = ["ohayo", "longDance", "dance", "hearteater"]
 	let BGs = ["smile", "cute", "curious", "evil"]
 	let actualBGs = ["mobile_looking", "mobile_lookingStraight", "mobile_lookingBack", "mobile_stretching", "mobile_wallpaper", "mobile", "sketch_redHorns"]
 	let audios = ["dahlingOhayo"]
@@ -32,15 +28,18 @@ class MainViewController: UIViewController {
 	let bg: UIImageView = {
 		let iv = UIImageView(image: UIImage(named: "mobile_lookingStraight"))
 		iv.contentMode = .scaleAspectFill
+		iv.isUserInteractionEnabled = true
 		iv.translatesAutoresizingMaskIntoConstraints = false
 		return iv
 	}()
+	
+	// Fucking device orientation
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask { return .landscapeRight }
 	
 	// MARK: - Funcs
 	
 	// if u can find the word from the videos array then just fucking play it
 	// if u can't then that means it is a fucking command
-	
 	
 	private func doWhatTheBoyfriendSaid(_ desire: String) {
 		if videos.contains(desire) {
@@ -51,21 +50,19 @@ class MainViewController: UIViewController {
 		} else if audios.contains(desire) {
 			playAudio(desire)
 			present(alert, animated: true, completion: nil)
-		} else if desire == "randomBg" {
+		} else if desire == "randomBG" {
 			changeBG(actualBGs.randomElement()!)
 			present(alert, animated: true, completion: nil)
 		} else {
 			changeBG("wtf")
 			present(alert, animated: true, completion: nil)
 		}
-		
 	}
 	
 	private func changeBG(_ bgName: String) {
 		bg.image = UIImage(named: bgName)
 		view.layoutSubviews()
 	}
-	
 	// MARK: - Fucking UI constraints
 	private func setupUI() {
 		// BG
@@ -76,10 +73,15 @@ class MainViewController: UIViewController {
 			bg.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			bg.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
-		
+		// tap guesture
+		let tap = UITapGestureRecognizer(target: self, action: #selector(self.showTheAlert))
+		bg.addGestureRecognizer(tap)
 	}
 	
 	// MARK: - Fucking alert shit
+	@objc func showTheAlert() {
+		present(alert, animated: true, completion: nil)
+	}
 	private lazy var alert: UIAlertController = {
 		var alert = UIAlertController(title: "What you want, dahling?", message: "", preferredStyle: .alert)
 		var alertTextField = UITextField()
@@ -140,11 +142,22 @@ class MainViewController: UIViewController {
 		vidPlayerController.player = player
 		vidPlayerController.videoGravity = .resizeAspectFill
 		
+		if vidName == "hearteater" {
+			vidPlayerController.videoGravity = .resize
+			
+			UIView.setAnimationsEnabled(false)
+			UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+			UIView.setAnimationsEnabled(true)
+		}
+		
 		NotificationCenter.default.addObserver(self, selector: #selector(vidPlayerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: vidPlayerController.player?.currentItem)
 		
-		present(vidPlayerController, animated: true) {
-			player.play()
-		}
+		self.addChild(vidPlayerController)
+		self.view.addSubview(vidPlayerController.view)
+		vidPlayerController.view.frame = self.view.frame
+		
+		player.play()
+		
 	}
 	@objc func vidPlayerDidFinishPlaying(note: NSNotification) {
 		UIView.animate(withDuration: 0.3) {
@@ -152,6 +165,10 @@ class MainViewController: UIViewController {
 		} completion: { done in
 			self.vidPlayerController.dismiss(animated: true) {
 				print("Vid playing finished")
+				
+				UIView.setAnimationsEnabled(false)
+				UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+				UIView.setAnimationsEnabled(true)
 			}
 		}
 	}

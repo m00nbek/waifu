@@ -16,6 +16,7 @@
 		3BA220B72857DFC500AEF859 /* longDance.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3BA220B62857DFC500AEF859 /* longDance.mp4 */; };
 		3BA220B92857E15500AEF859 /* dance.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3BA220B82857E15500AEF859 /* dance.mp4 */; };
 		3BA220BB2857E62500AEF859 /* dahlingOhayo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3BA220BA2857E62500AEF859 /* dahlingOhayo.mp3 */; };
+		3BD340F528590BF80071EF08 /* hearteater.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3BD340F428590BF80071EF08 /* hearteater.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3BA220B62857DFC500AEF859 /* longDance.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = longDance.mp4; path = gf_project_pics/longDance.mp4; sourceTree = SOURCE_ROOT; };
 		3BA220B82857E15500AEF859 /* dance.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = dance.mp4; path = gf_project_pics/dance.mp4; sourceTree = SOURCE_ROOT; };
 		3BA220BA2857E62500AEF859 /* dahlingOhayo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = dahlingOhayo.mp3; path = gf_project_pics/dahlingOhayo.mp3; sourceTree = SOURCE_ROOT; };
+		3BD340F428590BF80071EF08 /* hearteater.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = hearteater.mp4; path = gf_project_pics/hearteater.mp4; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			children = (
 				3BA220B82857E15500AEF859 /* dance.mp4 */,
 				3BA220B62857DFC500AEF859 /* longDance.mp4 */,
+				3BD340F428590BF80071EF08 /* hearteater.mp4 */,
 				3B2C25C8285603F00019E92A /* ohayo.mp4 */,
 				3BA220BA2857E62500AEF859 /* dahlingOhayo.mp3 */,
 			);
@@ -162,6 +165,7 @@
 				3BA220B72857DFC500AEF859 /* longDance.mp4 in Resources */,
 				3B2C25C9285603F00019E92A /* ohayo.mp4 in Resources */,
 				3B65FDE82855E92F0037B874 /* Assets.xcassets in Resources */,
+				3BD340F528590BF80071EF08 /* hearteater.mp4 in Resources */,
 				3BA220B92857E15500AEF859 /* dance.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
