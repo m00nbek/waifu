@@ -53,6 +53,8 @@ class MainViewController: UIViewController {
 		} else if desire == "randomBG" {
 			changeBG(actualBGs.randomElement()!)
 			present(alert, animated: true, completion: nil)
+		} else if desire == "kissMe" {
+			kissMe()
 		} else {
 			changeBG("wtf")
 			present(alert, animated: true, completion: nil)
@@ -62,6 +64,10 @@ class MainViewController: UIViewController {
 	private func changeBG(_ bgName: String) {
 		bg.image = UIImage(named: bgName)
 		view.layoutSubviews()
+	}
+	private func kissMe() {
+		// damn how is she supposed to do this? fuck
+		// i'll figure it out
 	}
 	// MARK: - Fucking UI constraints
 	private func setupUI() {
