@@ -1,4 +1,3 @@
-# girlfriend
-I don't need a human gf
+# waifu
+No need for a human gf
 
-02 forever
