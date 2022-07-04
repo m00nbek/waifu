@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import AudioToolbox
 
 class MainViewController: UIViewController {
 	
@@ -68,6 +69,7 @@ class MainViewController: UIViewController {
 	private func kissMe() {
 		// damn how is she supposed to do this? fuck
 		// i'll figure it out
+		AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(kSystemSoundID_Vibrate)) { }
 	}
 	// MARK: - Fucking UI constraints
 	private func setupUI() {
