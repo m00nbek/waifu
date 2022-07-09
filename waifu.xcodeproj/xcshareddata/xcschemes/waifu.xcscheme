@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3B65FDDA2855E92D0037B874"
-               BuildableName = "girlfriend.app"
+               BuildableName = "waifu.app"
                BlueprintName = "waifu"
                ReferencedContainer = "container:waifu.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3B65FDDA2855E92D0037B874"
-            BuildableName = "girlfriend.app"
+            BuildableName = "waifu.app"
             BlueprintName = "waifu"
             ReferencedContainer = "container:waifu.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3B65FDDA2855E92D0037B874"
-            BuildableName = "girlfriend.app"
+            BuildableName = "waifu.app"
             BlueprintName = "waifu"
             ReferencedContainer = "container:waifu.xcodeproj">
          </BuildableReference>
